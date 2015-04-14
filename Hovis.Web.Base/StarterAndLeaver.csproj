@@ -94,9 +94,17 @@
       <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PagedList">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -177,7 +185,16 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationUsersController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\CodeHelperController.cs" />
+    <Compile Include="Controllers\DepartmentController.cs" />
+    <Compile Include="Controllers\EmploymentTypeController.cs" />
+    <Compile Include="Controllers\ExternalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LeaverController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\RequestController.cs" />
+    <Compile Include="Controllers\StandardSettingsController.cs" />
+    <Compile Include="Controllers\StarterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +203,53 @@
     <Compile Include="App_Code\Identity\ApplicationSignInManager.cs" />
     <Compile Include="App_Code\Identity\ApplicationUserManager.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\PartialClasses.cs" />
+    <Compile Include="Models\StartersAndLeaversModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersAndLeaversModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StartersAndLeaversModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StartersAndLeaversModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StartersAndLeaversModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Application_Standard_Settings.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Employee_Department.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Employee_Department_Redundant.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Employee_Location.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Employee_Location_Redundant.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Employment_Type.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Leaver_Details.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_New_Starter_Details.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\t_Servicedesk_Contact.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StarterAndLeaverMetaData.cs" />
+    <Compile Include="Models\v_AD_Users_Lookup.cs">
+      <DependentUpon>StartersAndLeaversModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\ApplicationUserViewModel.cs" />
@@ -216,6 +280,11 @@
     <Content Include="Content\css\skins\palette.9.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\faceless.jpg" />
+    <Content Include="Content\img\Hovis Master Logo.PNG" />
+    <Content Include="Content\img\leaver.jpg" />
+    <Content Include="Content\img\Request.jpg" />
+    <Content Include="Content\img\starter.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\vendor\audioplayer\audioplayer.css" />
     <Content Include="Content\vendor\audioplayer\audioplayer.js" />
     <Content Include="Content\vendor\bootstrap-datepicker\bootstrap-datepicker.js" />
@@ -422,6 +491,24 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <EntityDeploy Include="Models\StartersAndLeaversModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StartersAndLeaversModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StartersAndLeaversModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StartersAndLeaversModel.edmx</DependentUpon>
+      <LastGenOutput>StartersAndLeaversModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StartersAndLeaversModel.edmx.diagram">
+      <DependentUpon>StartersAndLeaversModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\StartersAndLeaversModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StartersAndLeaversModel.edmx</DependentUpon>
+      <LastGenOutput>StartersAndLeaversModel.cs</LastGenOutput>
+    </Content>
+    <None Include="Properties\PublishProfiles\StarterAndLeaver.pubxml" />
     <None Include="Scripts\jquery-2.1.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -442,7 +529,10 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Views\Request\Create.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -451,7 +541,7 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Indexold.cshtml" />
     <Content Include="Views\Shared\Navigation\MainNavigation.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
@@ -460,10 +550,72 @@
     <Content Include="Views\Shared\Navigation\UserManagementNavigation.cshtml" />
     <Content Include="Views\ApplicationUsers\Delete.cshtml" />
     <Content Include="Views\ApplicationUsers\Edit.cshtml" />
+    <Content Include="Views\Department\Create.cshtml" />
+    <Content Include="Views\Department\Delete.cshtml" />
+    <Content Include="Views\Department\Details.cshtml" />
+    <Content Include="Views\Department\Edit.cshtml" />
+    <Content Include="Views\Department\Index.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\EmploymentType\Create.cshtml" />
+    <Content Include="Views\EmploymentType\Delete.cshtml" />
+    <Content Include="Views\EmploymentType\Details.cshtml" />
+    <Content Include="Views\EmploymentType\Edit.cshtml" />
+    <Content Include="Views\EmploymentType\Index.cshtml" />
+    <Content Include="Views\Starter\Createold.cshtml" />
+    <Content Include="Views\Starter\Delete.cshtml" />
+    <Content Include="Views\Starter\Details.cshtml" />
+    <Content Include="Views\Starter\EditOld.cshtml" />
+    <Content Include="Views\Starter\Indexold.cshtml" />
+    <Content Include="Views\Leaver\Create.cshtml" />
+    <Content Include="Views\Leaver\Delete.cshtml" />
+    <Content Include="Views\Leaver\Detailsold.cshtml" />
+    <Content Include="Views\Leaver\Edit.cshtml" />
+    <Content Include="Views\Leaver\Indexold.cshtml" />
+    <Content Include="Views\Request\Createold.cshtml" />
+    <Content Include="Views\Request\Delete.cshtml" />
+    <Content Include="Views\Request\Detailsold.cshtml" />
+    <Content Include="Views\Request\Editold.cshtml" />
+    <Content Include="Views\Request\Indexold.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Starter\Index.cshtml" />
+    <Content Include="Views\Starter\Create.cshtml" />
+    <Content Include="Views\Starter\Edit.cshtml" />
+    <Content Include="Views\Starter\Detailsold.cshtml" />
+    <Content Include="Views\Request\Index.cshtml" />
+    <Content Include="Views\Request\Create.cshtml" />
+    <Content Include="Views\Request\Edit.cshtml" />
+    <Content Include="Views\Request\Details.cshtml" />
+    <Content Include="Views\Leaver\Index.cshtml" />
+    <Content Include="Views\Leaver\IndexSearch.cshtml" />
+    <Content Include="Views\Leaver\Details.cshtml" />
+    <Content Include="Views\StandardSettings\Createold.cshtml" />
+    <Content Include="Views\StandardSettings\Delete.cshtml" />
+    <Content Include="Views\StandardSettings\Detailsold.cshtml" />
+    <Content Include="Views\StandardSettings\Editold.cshtml" />
+    <Content Include="Views\StandardSettings\Indexold.cshtml" />
+    <Content Include="Views\StandardSettings\Index.cshtml" />
+    <Content Include="Views\StandardSettings\Create.cshtml" />
+    <Content Include="Views\StandardSettings\Edit.cshtml" />
+    <Content Include="Views\StandardSettings\Details.cshtml" />
+    <Content Include="Views\External\CreateStarter.cshtml" />
+    <Content Include="Views\External\CreateRequest.cshtml" />
+    <Content Include="Views\External\IndexSearch.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\CodeHelper\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -483,7 +635,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62886/</IISUrl>
+          <IISUrl>http://localhost:62888/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -1,0 +1,580 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StarterAndLeaverModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_Application_Standard_Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Setting" Type="varchar" MaxLength="255" />
+          <Property Name="SettingValue" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Employee_Department">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Employee_Department_Redundant">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DeptDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Employee_Location">
+          <Key>
+            <PropertyRef Name="LocID" />
+          </Key>
+          <Property Name="LocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Employee_Location_Redundant">
+          <Key>
+            <PropertyRef Name="LocID" />
+          </Key>
+          <Property Name="LocID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LocationDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Employment_Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeDescription" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="t_Leaver_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFirstRequested" Type="datetime" />
+          <Property Name="RequestorsName" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsTelephoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsLocation" Type="int" />
+          <Property Name="LeaversName" Type="varchar" MaxLength="255" />
+          <Property Name="DeleteConfirmed" Type="varchar" MaxLength="4" />
+          <Property Name="DeleteDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t_New_Starter_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFirstRequested" Type="datetime" />
+          <Property Name="RequestorsName" Type="varchar" MaxLength="255" />
+          <Property Name="RaisedBy" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsTelephoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsLocation" Type="int" />
+          <Property Name="NewStartersName" Type="varchar" MaxLength="255" />
+          <Property Name="NewStartersRole" Type="varchar" MaxLength="255" />
+          <Property Name="EmploymentType" Type="int" />
+          <Property Name="NewStarterDept" Type="int" />
+          <Property Name="NewStarterLocation" Type="int" />
+          <Property Name="NewStarterDate" Type="datetime" />
+          <Property Name="ManagersName" Type="varchar" MaxLength="255" />
+          <Property Name="DeptCostCentre" Type="varchar" MaxLength="255" />
+          <Property Name="GmailRequired" Type="varchar" MaxLength="4" />
+          <Property Name="LaptopRequired" Type="varchar" MaxLength="4" />
+          <Property Name="MobileRequired" Type="varchar" MaxLength="4" />
+          <Property Name="RemoteAccessVPN" Type="varchar" MaxLength="4" />
+          <Property Name="CreationConfirmed" Type="varchar" MaxLength="4" />
+          <Property Name="CreationConfirmedBy" Type="varchar" MaxLength="255" />
+          <Property Name="CreationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="t_Servicedesk_Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DateFirstRequested" Type="datetime" />
+          <Property Name="RequestorsName" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsTelephoneNumber" Type="varchar" MaxLength="255" />
+          <Property Name="RequestorsLocation" Type="int" />
+          <Property Name="Requirements" Type="varchar(max)" />
+          <Property Name="RequestConfirmed" Type="varchar" MaxLength="4" />
+          <Property Name="RequestDate" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'StarterAndLeaver.dbo.v_AD_Users_Lookup' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="v_AD_Users_Lookup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="jobTitle" Type="nvarchar" MaxLength="150" />
+          <Property Name="telephonenumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="email" Type="nvarchar" MaxLength="150" />
+          <Property Name="mobileNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="physicaldeliveryoffice" Type="nvarchar" MaxLength="150" />
+          <Property Name="department" Type="nvarchar" MaxLength="150" />
+          <Property Name="l" Type="nvarchar" MaxLength="150" />
+          <Property Name="company" Type="nvarchar" MaxLength="150" />
+          <Property Name="distinguishedName" Type="nvarchar" MaxLength="150" />
+          <Property Name="lastlogondate" Type="nvarchar" MaxLength="150" />
+          <Property Name="lastlogontime" Type="nvarchar" MaxLength="150" />
+          <Property Name="lastsync" Type="nvarchar" MaxLength="150" />
+          <Property Name="st" Type="nvarchar" MaxLength="150" />
+          <Property Name="webpage" Type="nvarchar" MaxLength="150" />
+          <Property Name="samaccountname" Type="nvarchar" MaxLength="150" />
+          <Property Name="telNumber" Type="nvarchar" MaxLength="150" />
+          <Property Name="ManagerID" Type="int" />
+          <Property Name="ManagerFirstName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ManagerLastName" Type="nvarchar" MaxLength="150" />
+          <Property Name="ManagerEmail" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityContainer Name="StarterAndLeaverModelStoreContainer">
+          <EntitySet Name="t_Application_Standard_Settings" EntityType="Self.t_Application_Standard_Settings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Employee_Department" EntityType="Self.t_Employee_Department" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Employee_Department_Redundant" EntityType="Self.t_Employee_Department_Redundant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Employee_Location" EntityType="Self.t_Employee_Location" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Employee_Location_Redundant" EntityType="Self.t_Employee_Location_Redundant" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Employment_Type" EntityType="Self.t_Employment_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Leaver_Details" EntityType="Self.t_Leaver_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_New_Starter_Details" EntityType="Self.t_New_Starter_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_Servicedesk_Contact" EntityType="Self.t_Servicedesk_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="v_AD_Users_Lookup" EntityType="Self.v_AD_Users_Lookup" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [v_AD_Users_Lookup].[id] AS [id], 
+    [v_AD_Users_Lookup].[firstName] AS [firstName], 
+    [v_AD_Users_Lookup].[lastName] AS [lastName], 
+    [v_AD_Users_Lookup].[jobTitle] AS [jobTitle], 
+    [v_AD_Users_Lookup].[telephonenumber] AS [telephonenumber], 
+    [v_AD_Users_Lookup].[email] AS [email], 
+    [v_AD_Users_Lookup].[mobileNumber] AS [mobileNumber], 
+    [v_AD_Users_Lookup].[physicaldeliveryoffice] AS [physicaldeliveryoffice], 
+    [v_AD_Users_Lookup].[department] AS [department], 
+    [v_AD_Users_Lookup].[l] AS [l], 
+    [v_AD_Users_Lookup].[company] AS [company], 
+    [v_AD_Users_Lookup].[distinguishedName] AS [distinguishedName], 
+    [v_AD_Users_Lookup].[lastlogondate] AS [lastlogondate], 
+    [v_AD_Users_Lookup].[lastlogontime] AS [lastlogontime], 
+    [v_AD_Users_Lookup].[lastsync] AS [lastsync], 
+    [v_AD_Users_Lookup].[st] AS [st], 
+    [v_AD_Users_Lookup].[webpage] AS [webpage], 
+    [v_AD_Users_Lookup].[samaccountname] AS [samaccountname], 
+    [v_AD_Users_Lookup].[telNumber] AS [telNumber], 
+    [v_AD_Users_Lookup].[ManagerID] AS [ManagerID], 
+    [v_AD_Users_Lookup].[ManagerFirstName] AS [ManagerFirstName], 
+    [v_AD_Users_Lookup].[ManagerLastName] AS [ManagerLastName], 
+    [v_AD_Users_Lookup].[ManagerEmail] AS [ManagerEmail]
+    FROM [dbo].[v_AD_Users_Lookup] AS [v_AD_Users_Lookup]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StarterAndLeaverModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_Employee_Department">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_New_Starter_Details" Relationship="StarterAndLeaverModel.t_Employee_Departmentt_New_Starter_Details" FromRole="t_Employee_Department" ToRole="t_New_Starter_Details" />
+        </EntityType>
+        <EntityType Name="t_Employee_Department_Redundant">
+          <Key>
+            <PropertyRef Name="DeptID" />
+          </Key>
+          <Property Name="DeptID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DeptDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_Employee_Location">
+          <Key>
+            <PropertyRef Name="LocID" />
+          </Key>
+          <Property Name="LocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_New_Starter_Details" Relationship="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details" FromRole="t_Employee_Location" ToRole="t_New_Starter_Details" />
+          <NavigationProperty Name="t_New_Starter_Details1" Relationship="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details1" FromRole="t_Employee_Location" ToRole="t_New_Starter_Details" />
+          <NavigationProperty Name="t_Servicedesk_Contact" Relationship="StarterAndLeaverModel.t_Employee_Locationt_Servicedesk_Contact" FromRole="t_Employee_Location" ToRole="t_Servicedesk_Contact" />
+          <NavigationProperty Name="t_Leaver_Details" Relationship="StarterAndLeaverModel.t_Employee_Locationt_Leaver_Details" FromRole="t_Employee_Location" ToRole="t_Leaver_Details" />
+        </EntityType>
+        <EntityType Name="t_Employee_Location_Redundant">
+          <Key>
+            <PropertyRef Name="LocID" />
+          </Key>
+          <Property Name="LocID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LocationDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="t_Employment_Type">
+          <Key>
+            <PropertyRef Name="TypeID" />
+          </Key>
+          <Property Name="TypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeDescription" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_New_Starter_Details" Relationship="StarterAndLeaverModel.t_Employment_Typet_New_Starter_Details" FromRole="t_Employment_Type" ToRole="t_New_Starter_Details" />
+        </EntityType>
+        <EntityType Name="t_Leaver_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFirstRequested" Type="DateTime" Precision="3" />
+          <Property Name="RequestorsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsTelephoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsLocation" Type="Int32" Nullable="false" />
+          <Property Name="LeaversName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteConfirmed" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t_Employee_Location" Relationship="StarterAndLeaverModel.t_Employee_Locationt_Leaver_Details" FromRole="t_Leaver_Details" ToRole="t_Employee_Location" />
+        </EntityType>
+        <EntityType Name="t_New_Starter_Details">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFirstRequested" Type="DateTime" Precision="3" />
+          <Property Name="RequestorsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RaisedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsTelephoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsLocation" Type="Int32" Nullable="false" />
+          <Property Name="NewStartersName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="NewStartersRole" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EmploymentType" Type="Int32" Nullable="false" />
+          <Property Name="NewStarterDept" Type="Int32" Nullable="false" />
+          <Property Name="NewStarterLocation" Type="Int32" Nullable="false" />
+          <Property Name="NewStarterDate" Type="DateTime" Precision="3" />
+          <Property Name="ManagersName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="DeptCostCentre" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="GmailRequired" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="LaptopRequired" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="MobileRequired" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="RemoteAccessVPN" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CreationConfirmed" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CreationConfirmedBy" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CreationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t_Employee_Department" Relationship="StarterAndLeaverModel.t_Employee_Departmentt_New_Starter_Details" FromRole="t_New_Starter_Details" ToRole="t_Employee_Department" />
+          <NavigationProperty Name="t_Employment_Type" Relationship="StarterAndLeaverModel.t_Employment_Typet_New_Starter_Details" FromRole="t_New_Starter_Details" ToRole="t_Employment_Type" />
+          <NavigationProperty Name="t_Employee_Location" Relationship="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details" FromRole="t_New_Starter_Details" ToRole="t_Employee_Location" />
+          <NavigationProperty Name="t_Employee_Location1" Relationship="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details1" FromRole="t_New_Starter_Details" ToRole="t_Employee_Location" />
+        </EntityType>
+        <EntityType Name="t_Servicedesk_Contact">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DateFirstRequested" Type="DateTime" Precision="3" />
+          <Property Name="RequestorsName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsTelephoneNumber" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="RequestorsLocation" Type="Int32" Nullable="false" />
+          <Property Name="Requirements" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="RequestConfirmed" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="t_Employee_Location" Relationship="StarterAndLeaverModel.t_Employee_Locationt_Servicedesk_Contact" FromRole="t_Servicedesk_Contact" ToRole="t_Employee_Location" />
+        </EntityType>
+        <EntityType Name="v_AD_Users_Lookup">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="firstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="jobTitle" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="telephonenumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="mobileNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="physicaldeliveryoffice" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="department" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="l" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="company" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="distinguishedName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lastlogondate" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lastlogontime" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="lastsync" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="st" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="webpage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="samaccountname" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="telNumber" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerID" Type="Int32" />
+          <Property Name="ManagerFirstName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerLastName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ManagerEmail" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="StarterAndLeaverEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_Employee_Department" EntityType="Self.t_Employee_Department" />
+          <EntitySet Name="t_Employee_Department_Redundant" EntityType="Self.t_Employee_Department_Redundant" />
+          <EntitySet Name="t_Employee_Location" EntityType="Self.t_Employee_Location" />
+          <EntitySet Name="t_Employee_Location_Redundant" EntityType="Self.t_Employee_Location_Redundant" />
+          <EntitySet Name="t_Employment_Type" EntityType="Self.t_Employment_Type" />
+          <EntitySet Name="t_Leaver_Details" EntityType="Self.t_Leaver_Details" />
+          <EntitySet Name="t_New_Starter_Details" EntityType="Self.t_New_Starter_Details" />
+          <EntitySet Name="t_Servicedesk_Contact" EntityType="Self.t_Servicedesk_Contact" />
+          <EntitySet Name="v_AD_Users_Lookup" EntityType="Self.v_AD_Users_Lookup" />
+          <AssociationSet Name="t_Employee_Departmentt_New_Starter_Details" Association="StarterAndLeaverModel.t_Employee_Departmentt_New_Starter_Details">
+            <End Role="t_Employee_Department" EntitySet="t_Employee_Department" />
+            <End Role="t_New_Starter_Details" EntitySet="t_New_Starter_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_Employment_Typet_New_Starter_Details" Association="StarterAndLeaverModel.t_Employment_Typet_New_Starter_Details">
+            <End Role="t_Employment_Type" EntitySet="t_Employment_Type" />
+            <End Role="t_New_Starter_Details" EntitySet="t_New_Starter_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_Employee_Locationt_New_Starter_Details" Association="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details">
+            <End Role="t_Employee_Location" EntitySet="t_Employee_Location" />
+            <End Role="t_New_Starter_Details" EntitySet="t_New_Starter_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_Employee_Locationt_New_Starter_Details1" Association="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details1">
+            <End Role="t_Employee_Location" EntitySet="t_Employee_Location" />
+            <End Role="t_New_Starter_Details" EntitySet="t_New_Starter_Details" />
+          </AssociationSet>
+          <AssociationSet Name="t_Employee_Locationt_Servicedesk_Contact" Association="StarterAndLeaverModel.t_Employee_Locationt_Servicedesk_Contact">
+            <End Role="t_Employee_Location" EntitySet="t_Employee_Location" />
+            <End Role="t_Servicedesk_Contact" EntitySet="t_Servicedesk_Contact" />
+          </AssociationSet>
+          <AssociationSet Name="t_Employee_Locationt_Leaver_Details" Association="StarterAndLeaverModel.t_Employee_Locationt_Leaver_Details">
+            <End Role="t_Employee_Location" EntitySet="t_Employee_Location" />
+            <End Role="t_Leaver_Details" EntitySet="t_Leaver_Details" />
+          </AssociationSet>
+          <EntitySet Name="t_Application_Standard_Settings" EntityType="StarterAndLeaverModel.t_Application_Standard_Settings" />
+        </EntityContainer>
+        <Association Name="t_Employee_Departmentt_New_Starter_Details">
+          <End Type="StarterAndLeaverModel.t_Employee_Department" Role="t_Employee_Department" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_New_Starter_Details" Role="t_New_Starter_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employee_Department">
+              <PropertyRef Name="DeptID" />
+            </Principal>
+            <Dependent Role="t_New_Starter_Details">
+              <PropertyRef Name="NewStarterDept" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_Employment_Typet_New_Starter_Details">
+          <End Type="StarterAndLeaverModel.t_Employment_Type" Role="t_Employment_Type" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_New_Starter_Details" Role="t_New_Starter_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employment_Type">
+              <PropertyRef Name="TypeID" />
+            </Principal>
+            <Dependent Role="t_New_Starter_Details">
+              <PropertyRef Name="EmploymentType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_Employee_Locationt_New_Starter_Details">
+          <End Type="StarterAndLeaverModel.t_Employee_Location" Role="t_Employee_Location" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_New_Starter_Details" Role="t_New_Starter_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employee_Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="t_New_Starter_Details">
+              <PropertyRef Name="NewStarterLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_Employee_Locationt_New_Starter_Details1">
+          <End Type="StarterAndLeaverModel.t_Employee_Location" Role="t_Employee_Location" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_New_Starter_Details" Role="t_New_Starter_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employee_Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="t_New_Starter_Details">
+              <PropertyRef Name="RequestorsLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_Employee_Locationt_Servicedesk_Contact">
+          <End Type="StarterAndLeaverModel.t_Employee_Location" Role="t_Employee_Location" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_Servicedesk_Contact" Role="t_Servicedesk_Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employee_Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="t_Servicedesk_Contact">
+              <PropertyRef Name="RequestorsLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="t_Employee_Locationt_Leaver_Details">
+          <End Type="StarterAndLeaverModel.t_Employee_Location" Role="t_Employee_Location" Multiplicity="1" />
+          <End Type="StarterAndLeaverModel.t_Leaver_Details" Role="t_Leaver_Details" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="t_Employee_Location">
+              <PropertyRef Name="LocID" />
+            </Principal>
+            <Dependent Role="t_Leaver_Details">
+              <PropertyRef Name="RequestorsLocation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="t_Application_Standard_Settings">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Setting" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="SettingValue" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StarterAndLeaverModelStoreContainer" CdmEntityContainer="StarterAndLeaverEntities">
+          <EntitySetMapping Name="t_Employee_Department">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Employee_Department">
+              <MappingFragment StoreEntitySet="t_Employee_Department">
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="DeptDescription" ColumnName="DeptDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Employee_Department_Redundant">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Employee_Department_Redundant">
+              <MappingFragment StoreEntitySet="t_Employee_Department_Redundant">
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="DeptDescription" ColumnName="DeptDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Employee_Location">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Employee_Location">
+              <MappingFragment StoreEntitySet="t_Employee_Location">
+                <ScalarProperty Name="LocID" ColumnName="LocID" />
+                <ScalarProperty Name="LocationDescription" ColumnName="LocationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Employee_Location_Redundant">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Employee_Location_Redundant">
+              <MappingFragment StoreEntitySet="t_Employee_Location_Redundant">
+                <ScalarProperty Name="LocID" ColumnName="LocID" />
+                <ScalarProperty Name="LocationDescription" ColumnName="LocationDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Employment_Type">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Employment_Type">
+              <MappingFragment StoreEntitySet="t_Employment_Type">
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="TypeDescription" ColumnName="TypeDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Leaver_Details">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Leaver_Details">
+              <MappingFragment StoreEntitySet="t_Leaver_Details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateFirstRequested" ColumnName="DateFirstRequested" />
+                <ScalarProperty Name="RequestorsName" ColumnName="RequestorsName" />
+                <ScalarProperty Name="RequestorsTelephoneNumber" ColumnName="RequestorsTelephoneNumber" />
+                <ScalarProperty Name="RequestorsLocation" ColumnName="RequestorsLocation" />
+                <ScalarProperty Name="LeaversName" ColumnName="LeaversName" />
+                <ScalarProperty Name="DeleteConfirmed" ColumnName="DeleteConfirmed" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_New_Starter_Details">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_New_Starter_Details">
+              <MappingFragment StoreEntitySet="t_New_Starter_Details">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateFirstRequested" ColumnName="DateFirstRequested" />
+                <ScalarProperty Name="RequestorsName" ColumnName="RequestorsName" />
+                <ScalarProperty Name="RaisedBy" ColumnName="RaisedBy" />
+                <ScalarProperty Name="RequestorsTelephoneNumber" ColumnName="RequestorsTelephoneNumber" />
+                <ScalarProperty Name="RequestorsLocation" ColumnName="RequestorsLocation" />
+                <ScalarProperty Name="NewStartersName" ColumnName="NewStartersName" />
+                <ScalarProperty Name="NewStartersRole" ColumnName="NewStartersRole" />
+                <ScalarProperty Name="EmploymentType" ColumnName="EmploymentType" />
+                <ScalarProperty Name="NewStarterDept" ColumnName="NewStarterDept" />
+                <ScalarProperty Name="NewStarterLocation" ColumnName="NewStarterLocation" />
+                <ScalarProperty Name="NewStarterDate" ColumnName="NewStarterDate" />
+                <ScalarProperty Name="ManagersName" ColumnName="ManagersName" />
+                <ScalarProperty Name="DeptCostCentre" ColumnName="DeptCostCentre" />
+                <ScalarProperty Name="GmailRequired" ColumnName="GmailRequired" />
+                <ScalarProperty Name="LaptopRequired" ColumnName="LaptopRequired" />
+                <ScalarProperty Name="MobileRequired" ColumnName="MobileRequired" />
+                <ScalarProperty Name="RemoteAccessVPN" ColumnName="RemoteAccessVPN" />
+                <ScalarProperty Name="CreationConfirmed" ColumnName="CreationConfirmed" />
+                <ScalarProperty Name="CreationConfirmedBy" ColumnName="CreationConfirmedBy" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Servicedesk_Contact">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Servicedesk_Contact">
+              <MappingFragment StoreEntitySet="t_Servicedesk_Contact">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DateFirstRequested" ColumnName="DateFirstRequested" />
+                <ScalarProperty Name="RequestorsName" ColumnName="RequestorsName" />
+                <ScalarProperty Name="RequestorsTelephoneNumber" ColumnName="RequestorsTelephoneNumber" />
+                <ScalarProperty Name="RequestorsLocation" ColumnName="RequestorsLocation" />
+                <ScalarProperty Name="Requirements" ColumnName="Requirements" />
+                <ScalarProperty Name="RequestConfirmed" ColumnName="RequestConfirmed" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="v_AD_Users_Lookup">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.v_AD_Users_Lookup">
+              <MappingFragment StoreEntitySet="v_AD_Users_Lookup">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="jobTitle" ColumnName="jobTitle" />
+                <ScalarProperty Name="telephonenumber" ColumnName="telephonenumber" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobileNumber" ColumnName="mobileNumber" />
+                <ScalarProperty Name="physicaldeliveryoffice" ColumnName="physicaldeliveryoffice" />
+                <ScalarProperty Name="department" ColumnName="department" />
+                <ScalarProperty Name="l" ColumnName="l" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="distinguishedName" ColumnName="distinguishedName" />
+                <ScalarProperty Name="lastlogondate" ColumnName="lastlogondate" />
+                <ScalarProperty Name="lastlogontime" ColumnName="lastlogontime" />
+                <ScalarProperty Name="lastsync" ColumnName="lastsync" />
+                <ScalarProperty Name="st" ColumnName="st" />
+                <ScalarProperty Name="webpage" ColumnName="webpage" />
+                <ScalarProperty Name="samaccountname" ColumnName="samaccountname" />
+                <ScalarProperty Name="telNumber" ColumnName="telNumber" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+                <ScalarProperty Name="ManagerFirstName" ColumnName="ManagerFirstName" />
+                <ScalarProperty Name="ManagerLastName" ColumnName="ManagerLastName" />
+                <ScalarProperty Name="ManagerEmail" ColumnName="ManagerEmail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_Application_Standard_Settings">
+            <EntityTypeMapping TypeName="StarterAndLeaverModel.t_Application_Standard_Settings">
+              <MappingFragment StoreEntitySet="t_Application_Standard_Settings">
+                <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+                <ScalarProperty Name="Setting" ColumnName="Setting" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

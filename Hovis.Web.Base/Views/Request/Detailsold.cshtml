@@ -1,0 +1,74 @@
+﻿@model Hovis.Web.Base.Models.t_Servicedesk_Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t_Servicedesk_Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFirstRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFirstRequested)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsTelephoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsTelephoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requirements)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requirements)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

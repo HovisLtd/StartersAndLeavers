@@ -1,0 +1,47 @@
+﻿@model Hovis.Web.Base.Models.t_Employment_Type
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="content-wrap">
+    <div class="center-wrapper text-left">
+        <div class="center-content">
+            <div class="subscription col-md-6 col-md-offset-3 bg-white">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Create New Type</header>
+                    <div class="panel-body">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+                            <div class="form">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.TypeDescription, htmlAttributes: new { @class = "control-label" })
+
+                                    @Html.EditorFor(model => model.TypeDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.TypeDescription, "", new { @class = "text-danger" })
+
+                                </div>
+
+                                <div class="form-group">
+                                    <div>
+                                        <input type="submit" value="Create" class="btn btn-success" />
+                                    </div>
+                                    <div>
+                                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

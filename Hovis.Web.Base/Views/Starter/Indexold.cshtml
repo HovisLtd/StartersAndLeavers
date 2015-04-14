@@ -1,0 +1,147 @@
+﻿@model IEnumerable<Hovis.Web.Base.Models.t_New_Starter_Details>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DateFirstRequested)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorsName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RaisedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorsTelephoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestorsLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewStartersName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewStartersRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmploymentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewStarterDept)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewStarterLocation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewStarterDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ManagersName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeptCostCentre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GmailRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LaptopRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MobileRequired)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RemoteAccessVPN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationConfirmed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationConfirmedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateFirstRequested)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestorsName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RaisedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestorsTelephoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestorsLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStartersName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStartersRole)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmploymentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStarterDept)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStarterLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewStarterDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ManagersName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeptCostCentre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GmailRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LaptopRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MobileRequired)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RemoteAccessVPN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationConfirmed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationConfirmedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

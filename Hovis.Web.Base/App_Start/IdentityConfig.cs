@@ -29,8 +29,8 @@ namespace Hovis.Web.Base
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions
             {
-                ClientId = "732945296892-vffm4f3p3smp7uhvnqbte3chi60n5k9i.apps.googleusercontent.com",
-                ClientSecret = "One1Moj9ilc-28YhsbUajS2l",
+                ClientId = "745758001127-84v8k3eetk0c8df56f5u6oj4rk3atnbu.apps.googleusercontent.com",
+                ClientSecret = "efATD24XoTZQPilgAmSGhis6",
             });
         }
     }

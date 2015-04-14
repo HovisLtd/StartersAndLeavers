@@ -1,0 +1,83 @@
+﻿@model PagedList.IPagedList<Hovis.Web.Base.Models.t_New_Starter_Details>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+<div class="content-wrap no-padding">
+    <section class="panel panel-info">
+        <header class="panel-heading">New Starters</header>
+        <div class="panel-body">
+            <p>
+                @Html.ActionLink("Create New", "Create", null ,new { @class = "btn btn-success" })
+            </p>
+            <div class="table-responsive">
+                <table class="table responsive" data-sortable="" data-sortable-initialized="true">
+                    <thead>
+                        <tr>
+                            <th data-sorted="true" data-sorted-direction="descending">@Html.DisplayNameFor(model => model.First().ID)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().NewStartersName)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().NewStarterDept)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().NewStarterLocation)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().NewStarterDate)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().RequestorsName)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().RequestorsTelephoneNumber)</th>
+                            <th data-sorted="false">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+            {
+                        <tbody>
+                            <tr class="@item.CreationConfirmed">
+                                <td>@Html.DisplayFor(modelItem => item.ID)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NewStartersName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.t_Employee_Department.DeptDescription)</td>
+                                <td>@Html.DisplayFor(modelItem => item.t_Employee_Location.LocationDescription)</td>
+                                <td>@Html.DisplayFor(modelItem => item.NewStarterDate)</td>
+                                <td>@Html.DisplayFor(modelItem => item.RequestorsName)</td>
+                                <td>@Html.DisplayFor(modelItem => item.RequestorsTelephoneNumber)</td>
+                                <td>
+                                    @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-success btn-xs" })
+                                    @if (item.CreationConfirmed == "No")
+                                    {
+                                        @String.Concat(" | ", "")@Html.ActionLink("Close", "Close", new { id = item.ID }, new { @class = "btn btn-warning btn-xs" })
+                                        @String.Concat(" | ", "")@Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-success btn-xs" })
+                                    }
+                                    @Html.HiddenFor(modelItem => item.RequestorsName)
+                                    @Html.HiddenFor(modelItem => item.RaisedBy)
+                                    @Html.HiddenFor(modelItem => item.RequestorsLocation)
+                                    @Html.HiddenFor(modelItem => item.NewStartersRole)
+                                    @Html.HiddenFor(modelItem => item.EmploymentType)
+                                    @Html.HiddenFor(modelItem => item.ManagersName)
+                                    @Html.HiddenFor(modelItem => item.DeptCostCentre)
+                                    @Html.HiddenFor(modelItem => item.GmailRequired)
+                                    @Html.HiddenFor(modelItem => item.LaptopRequired)
+                                    @Html.HiddenFor(modelItem => item.MobileRequired)
+                                    @Html.HiddenFor(modelItem => item.RemoteAccessVPN)
+                                    @Html.HiddenFor(modelItem => item.CreationConfirmed)
+                                    @Html.HiddenFor(modelItem => item.CreationConfirmedBy)
+                                    @Html.HiddenFor(modelItem => item.CreationDate)
+                                    </td>
+
+                            </tr>
+                        </tbody>
+            }
+                </table>
+                <br />
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+        </div>
+    </div>
+</section>
+</div>
+<style type="text/css">
+    .No {
+        background-color:white;
+    }
+    .Yes {
+        background-color:lavender;
+    }
+</style>
+

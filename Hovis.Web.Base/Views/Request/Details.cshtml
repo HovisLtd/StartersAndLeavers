@@ -1,0 +1,89 @@
+﻿@model Hovis.Web.Base.Models.t_Servicedesk_Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-lg-12">
+            <section class="panel panel-info">
+                <header class="panel-heading">New Request Details</header>
+                <div class="panel-body">
+
+                    <div>
+                        <h4></h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                             <dt>
+                                @Html.DisplayNameFor(model => model.DateFirstRequested)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DateFirstRequested)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RequestorsName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RequestorsName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RequestorsTelephoneNumber)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RequestorsTelephoneNumber)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RequestorsLocation)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RequestorsLocation)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Requirements)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Requirements)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RequestConfirmed)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RequestConfirmed)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.RequestDate)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.RequestDate)
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                </div>
+                <p>
+                @if (Model.RequestConfirmed == "No")
+                    {
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }, new { @class = "btn btn-success btn-md" })@String.Concat(" | ", "")
+                    }                                                                                                  
+                    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-success btn-md" })
+                    @*<a href="@Url.Action("ReportDetails", new { id = Model.VPDRefNo })">Get Report PDF</a>*@
+                </p>
+            </section>
+        </div>
+   </div>
+</div>
+

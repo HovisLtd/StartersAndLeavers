@@ -11,7 +11,7 @@ namespace Hovis.Web.Base
         // array with users that will be created for this application on startup
         private static readonly UserToCreate[] UsersToCreate =
         {
-            new UserToCreate("Alex", "Brown", "alex.brown@hovis.co.uk", "Admin"),
+            new UserToCreate("Andy", "Taylor", "andy.taylor@hovis.co.uk", "Admin"),
 
             //other users to create can be created in this array like this:
             //new UserToCreate("John", "Smith", "john.smith@hovis.co.uk", "Admin", "AnotherRole", "AndAnotherRole"),

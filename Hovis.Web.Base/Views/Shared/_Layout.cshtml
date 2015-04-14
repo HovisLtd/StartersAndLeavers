@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
     <!-- /meta -->
-    @{
-        string pageTitle = @ViewBag.Title ?? "Hovis Application";
-    }
-    <title>@pageTitle</title>
-    @Styles.Render("~/Content/css");
-
+    <title>@ViewBag.Title - Hovis Starters and Leavers</title>
+    @Styles.Render("~/Content/css")
+    @*@Styles.Render("~/content/bundles/fonts")*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     <!-- page level plugin styles -->
     <link rel="stylesheet" href="/Content/vendor/offline/theme.css">
     <link rel="stylesheet" href="/Content/vendor/pace/theme.css">
@@ -40,10 +39,10 @@
         <header class="header header-fixed navbar">
             <div class="brand">
                 <a href="javascript:;" class="fa fa-bars off-left visible-xs" data-toggle="off-canvas" data-move="ltr"></a>
-                <a href="index.html" class="navbar-brand text-white">
-                    <i class="fa fa-stop mg-r-sm"></i>
+                <a href="@Url.Action("Index", "Home")" class="navbar-brand text-white">
+                    <i class="fa fa-android mg-r-sm"></i>
                     <span class="heading-font">
-                        Title Goes Here
+                        Starters and Leavers
                     </span>
                 </a>
             </div>
@@ -55,12 +54,55 @@
             <aside class="sidebar canvas-left">
                 <!-- main navigation -->
                 <nav class="main-navigation">
-                    @{
-                        Html.RenderPartial("Navigation/MainNavigation");
-                    }
-                    <hr />
-                    @{
-                        Html.RenderPartial("Navigation/UserManagementNavigation");
+                    <ul>
+                        <li>
+                            <a href="@Url.Action("Index", "Home")">
+                                <i class="fa fa-coffee"></i>
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("About", "Home")">
+                                <i class="fa fa-binoculars"></i>
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="@Url.Action("Contact", "Home")">
+                                <i class="fa fa-info"></i>
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                        <li class="dropdown show-on-hover">
+                            <a href="javascript:;" data-toggle="dropdown">
+                                <i class="fa fa-bookmark"></i>
+                                <span>Log</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action("Index", "Starter")">
+                                        <span>Starter</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Leaver")">
+                                        <span>Leaver</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Request")">
+                                        <span>Request</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    @if (User.IsInRole("Admin") || User.IsInRole("Site Admin"))
+                    {
+                        Html.RenderPartial("~/Views/Shared/Navigation/MainNavigation.cshtml");
+                        <hr />
+                        Html.RenderPartial("~/Views/Shared/Navigation/UserManagementNavigation.cshtml");
+
                     }
                 </nav>
                 <!-- /main navigation -->
@@ -84,8 +126,7 @@
     <script src="/Scripts/main.js"></script>
     <!-- /core scripts -->
     <!-- page level scripts -->
-    @Scripts.Render("~/bundles/bootstrap")
-
+    
     @RenderSection("scripts", required: false)
     <!-- /page level scripts -->
 </body>

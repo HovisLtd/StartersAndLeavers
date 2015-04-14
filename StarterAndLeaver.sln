@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hovis.Web.Base", "Hovis.Web.Base\Hovis.Web.Base.csproj", "{CF599F72-0134-4B01-B613-CC781921E5D2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarterAndLeaver", "Hovis.Web.Base\StarterAndLeaver.csproj", "{CF599F72-0134-4B01-B613-CC781921E5D2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{70F9291C-C6AE-4E7D-A000-B58C488431B9}"
 	ProjectSection(SolutionItems) = preProject

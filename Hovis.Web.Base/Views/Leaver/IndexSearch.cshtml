@@ -1,0 +1,74 @@
+﻿@model PagedList.IPagedList<Hovis.Web.Base.Models.v_AD_Users_Lookup>
+@using PagedList.Mvc;
+
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="content-wrap no-padding">
+    <section class="panel panel-info">
+        <header class="panel-heading">Active Directory Search</header>
+        <div class="panel-body">
+@using (Html.BeginForm("IndexSearch", "Leaver", FormMethod.Get, new { id = "IndexSearch" }))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <p>Search:</p>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <div class='input-group text' id='Searchfield'>
+                        @Html.TextBox("Searchfield", ViewBag.CurrentFilter as string, new { @class = "form-control input-group" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}            <div class="table-responsive">
+                <table class="table responsive" data-sortable="" data-sortable-initialized="true">
+                    <thead>
+                        <tr>
+                            <th data-sorted="true" data-sorted-direction="descending">@Html.DisplayNameFor(model => model.First().email)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().physicaldeliveryoffice)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().department)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().ManagerEmail)</th>
+                            <th data-sorted="false">@Html.DisplayNameFor(model => model.First().samaccountname)</th>
+                            <th data-sorted="false">Action</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+            {
+                        <tbody>
+                            <tr class="#">
+                                <td>@Html.DisplayFor(modelItem => item.email)</td>
+                                <td>@Html.DisplayFor(modelItem => item.physicaldeliveryoffice)</td>
+                                <td>@Html.DisplayFor(modelItem => item.department)</td>
+                                <td>@Html.DisplayFor(modelItem => item.ManagerEmail)</td>
+                                <td>@Html.DisplayFor(modelItem => item.samaccountname)</td>
+                                <td>
+                                        @Html.ActionLink("Flag", "Flag", new { samaccountname = item.samaccountname }, new { @class = "btn btn-warning btn-xs" })
+                                </td>
+
+                            </tr>
+                        </tbody>
+            }
+                </table>
+                <br />
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+                @Html.PagedListPager(Model, page => Url.Action("IndexSearch", new { page, currentFilter = ViewBag.CurrentFilter }))
+        </div>
+    </div>
+</section>
+</div>
+
+

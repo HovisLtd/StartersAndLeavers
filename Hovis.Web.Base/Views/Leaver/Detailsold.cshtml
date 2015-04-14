@@ -1,0 +1,74 @@
+﻿@model Hovis.Web.Base.Models.t_Leaver_Details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>t_Leaver_Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFirstRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFirstRequested)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsTelephoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsTelephoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LeaversName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LeaversName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeleteDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeleteDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

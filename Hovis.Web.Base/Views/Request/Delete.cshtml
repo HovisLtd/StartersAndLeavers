@@ -1,0 +1,80 @@
+﻿@model Hovis.Web.Base.Models.t_Servicedesk_Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>t_Servicedesk_Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFirstRequested)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFirstRequested)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsTelephoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsTelephoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestorsLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestorsLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Requirements)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Requirements)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestConfirmed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestConfirmed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

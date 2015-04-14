@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b57e8209f1f4c779cdb43b7f16621cd" Name="Diagram1">
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Employee_Department" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Employee_Department_Redundant" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Employee_Location" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Employee_Location_Redundant" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Employment_Type" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Leaver_Details" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_New_Starter_Details" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Servicedesk_Contact" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.v_AD_Users_Lookup" Width="1.5" PointX="6.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employee_Departmentt_New_Starter_Details" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employment_Typet_New_Starter_Details" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employee_Locationt_New_Starter_Details1" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employee_Locationt_Servicedesk_Contact" />
+        <AssociationConnector Association="StarterAndLeaverModel.t_Employee_Locationt_Leaver_Details" />
+        <EntityTypeShape EntityType="StarterAndLeaverModel.t_Application_Standard_Settings" Width="1.5" PointX="3.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Hovis.Web.Base.Models.t_Application_Standard_Settings>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="content-wrap">
+    <div class="center-wrapper text-left">
+        <div class="center-content">
+            <div class="subscription col-md-6 col-md-offset-3 bg-white">
+                <p>
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Setting)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SettingValue)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Setting)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SettingValue)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-success btn-xs" }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-success btn-xs" }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger btn-xs" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

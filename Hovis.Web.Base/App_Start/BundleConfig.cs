@@ -16,10 +16,8 @@ namespace Hovis.Web.Base
            "~/Content/vendor/timepicker/jquery.timepicker.css",
            "~/Content/vendor/offline/theme.css",
            "~/Content/vendor/pace/theme.css",
-
            "~/Content/css/font-awesome.css",
            "~/Content/css/animate.css",
-
            "~/Content/css/skins/palette.1.css",
            "~/Content/css/fonts/style.1.css",
            "~/Content/css/main.css"));
@@ -35,6 +33,8 @@ namespace Hovis.Web.Base
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.min.js",
+                      "~/Content/vendor/bootstrap-select/bootstrap-select.js",
+                      "~/Content/vendor/bootstrap-datepicker/bootstrap-datepicker.js",
                       "~/Scripts/respond.js"));
 
             // Set EnableOptimizations to false for debugging. For more information,

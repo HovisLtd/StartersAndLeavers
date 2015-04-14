@@ -1,0 +1,34 @@
+﻿@model Hovis.Web.Base.Models.t_Employee_Location
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="content-wrap">
+    <div class="center-wrapper text-left">
+        <div class="center-content">
+            <div class="subscription col-md-6 col-md-offset-3 bg-white">
+                <section class="panel panel-primary">
+                    <header class="panel-heading">Location</header>
+                    <div>
+                        <h4></h4>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LocationDescription)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LocationDescription)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Edit", "Edit", new { id = Model.LocID }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-success" })
+                    </p>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
